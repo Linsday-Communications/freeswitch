@@ -292,13 +292,17 @@ sofia_transport_t sofia_glue_str2transport(const char *str)
 {
 	if (!strncasecmp(str, "udp", 3)) {
 		return SOFIA_TRANSPORT_UDP;
+	} else if (!strncasecmp(str, "wss", 3)) {
+		return SOFIA_TRANSPORT_WSS;
+	} else if (!strncasecmp(str, "ws", 2)) {
+		return SOFIA_TRANSPORT_WS;
 	} else if (!strncasecmp(str, "tcp", 3)) {
 		return SOFIA_TRANSPORT_TCP;
 	} else if (!strncasecmp(str, "sctp", 4)) {
 		return SOFIA_TRANSPORT_SCTP;
 	} else if (!strncasecmp(str, "tls", 3)) {
 		return SOFIA_TRANSPORT_TCP_TLS;
-	}
+	} 
 
 	return SOFIA_TRANSPORT_UNKNOWN;
 }
